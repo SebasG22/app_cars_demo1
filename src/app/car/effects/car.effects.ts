@@ -7,6 +7,7 @@ import { CarService } from '../services/car.service';
 import { map, switchMap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Car } from '../models';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class CarEffects {
@@ -26,6 +27,8 @@ export class CarEffects {
    .ofType(carActions.CREATE_CAR_SUCCESS)
    .pipe(map(() => {
         console.warn('The car was created correctly');
+        this.toastr.success('Good Job!', 'The car was saved');
+
    }));
 
    @Effect( { dispatch: false})
@@ -34,6 +37,7 @@ export class CarEffects {
    .pipe(
        map((action: any) => action.payload),
        map((payload) => {
+        this.toastr.error('Error!', 'Check the console');
         console.error(payload);
    }));
 
@@ -53,6 +57,7 @@ export class CarEffects {
    .pipe(
        map((action: any) => action.payload),
        map((payload) => {
+        this.toastr.error('Error!', 'Check the console');
         console.error(payload);
    }));
 
@@ -72,6 +77,7 @@ export class CarEffects {
         map((action: any) => action.payload),
         map((payload) => {
          console.error(payload);
+         this.toastr.error('Error!', 'Check the console');
     }));
 
     @Effect()
@@ -91,6 +97,7 @@ export class CarEffects {
        map((action: any) => action.payload),
        map((payload) => {
         console.error(payload);
+        this.toastr.error('Error!', 'Check the console');
    }));
 
    @Effect()
@@ -110,10 +117,12 @@ export class CarEffects {
        map((action: any) => action.payload),
        map((payload) => {
         console.error(payload);
+        this.toastr.error('Error!', 'Check the console');
    }));
 
     public constructor(
         private actions$: Actions,
-        private carService: CarService
+        private carService: CarService,
+        private toastr: ToastrService
     ) {}
 }

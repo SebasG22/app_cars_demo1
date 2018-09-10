@@ -1,3 +1,13 @@
-<p>
-  car-list works!
-</p>
+<mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <span>Dashboard</span>
+          <button mat-icon-button [routerLink]="['car-edit','']">
+                  <mat-icon>add</mat-icon>
+          </button>
+              
+        </mat-toolbar-row>
+            </mat-toolbar>
+            <div class="container">
+            <app-car-list></app-car-list>
+
+      </div>      

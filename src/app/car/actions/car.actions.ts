@@ -64,7 +64,7 @@ export class GetAllCarsFailed implements Action {
 
 export class UpdateCar implements Action {
     readonly type = UPDATE_CAR;
-    public constructor(public payload: string) {}
+    public constructor(public payload: Car) {}
 }
 
 export class UpdateCarSuccess implements Action {

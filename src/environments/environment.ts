@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  spring_backend: 'localhost:8080/api/v1/',
+  spring_backend: 'https://car-demo1.herokuapp.com/api/v1/',
 };
 
 /*

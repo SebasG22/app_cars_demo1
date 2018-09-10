@@ -1,3 +1,21 @@
-<p>
-  car-form works!
-</p>
+
+<form [formGroup]="form" (ngSubmit)="onSubmitForm(form)">
+    
+    <mat-form-field>
+        <input matInput type="text" placeholder="Year (YYYY)" formControlName="year">
+      </mat-form-field>
+
+      <mat-form-field>
+          <input matInput type="text" placeholder="Plate" formControlName="plate">
+        </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Modelo" formControlName="model">
+        <mat-option  *ngFor="let model of carModels" [value]="model"> {{ model }} </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button type="button" [routerLink]="['/']">Before</button>
+    <button mat-button type="submit" class="bg-purple">Submit</button>
+
+  </form>
